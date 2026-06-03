@@ -54,6 +54,7 @@
   <ItemGroup>
     <Content Include="Controls\UserControls\CommonDropDown.ascx" />
     <Content Include="Controls\UserControls\CommonLabel.ascx" />
+    <Content Include="Controls\UserControls\ModeDropDown.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -73,6 +74,13 @@
     </Compile>
     <Compile Include="Controls\UserControls\CommonLabel.ascx.designer.cs">
       <DependentUpon>CommonLabel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\ModeDropDown.ascx.cs">
+      <DependentUpon>ModeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\ModeDropDown.ascx.designer.cs">
+      <DependentUpon>ModeDropDown.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

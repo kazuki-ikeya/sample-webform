@@ -29,6 +29,11 @@ namespace WebForm
                 BaseDropDown1.DataBind();
                 BaseDropDown1.SelectedValue = "2";
 
+                ModeDropDown1.DataValueField = "Key";
+                ModeDropDown1.DataTextField = "Name";
+                ModeDropDown1.DataSource = dataSource;
+                ModeDropDown1.SelectedValue = "2";
+
                 ApplyReadOnly();
 
                 ShowPostResult("初期表示");
@@ -64,6 +69,7 @@ namespace WebForm
         {
             CommonDropDown1.ReadOnly = CommonReadOnlyCheckBox.Checked;
             BaseDropDown1.ReadOnly = BaseReadOnlyCheckBox.Checked;
+            ModeDropDown1.ReadOnly = ModeReadOnlyCheckBox.Checked;
         }
 
         /// <summary>
@@ -74,15 +80,19 @@ namespace WebForm
         {
             string commonRoleKbn = CommonDropDown1.SelectedValue;
             string baseRoleKbn = BaseDropDown1.SelectedValue;
+            string modeRoleKbn = ModeDropDown1.SelectedValue;
 
             StatusLabel.Text =
                 "CommonDropDown ReadOnly: " + CommonDropDown1.ReadOnly +
-                " / BaseDropDown ReadOnly: " + BaseDropDown1.ReadOnly;
+                " / BaseDropDown ReadOnly: " + BaseDropDown1.ReadOnly +
+                " / ModeDropDown ReadOnly: " + ModeDropDown1.ReadOnly;
             MessageLabel.Text =
                 "操作: " + actionName + "<br />" +
                 "IsPostBack: " + IsPostBack + "<br />" +
                 "CommonDropDown 選択値: " + Server.HtmlEncode(commonRoleKbn) + "<br />" +
-                "BaseDropDown 選択値: " + Server.HtmlEncode(baseRoleKbn);
+                "BaseDropDown 選択値: " + Server.HtmlEncode(baseRoleKbn) + "<br />" +
+                "ModeDropDown 選択値: " + Server.HtmlEncode(modeRoleKbn) + "<br />" +
+                "ModeDropDown 表示テキスト: " + Server.HtmlEncode(ModeDropDown1.SelectedText);
         }
 
         /// <summary>

@@ -106,6 +106,8 @@ namespace WebForm.Controls
 
             writer.AddAttribute(HtmlTextWriterAttribute.Class, "required-mark");
             writer.AddStyleAttribute(HtmlTextWriterStyle.Color, ColorTranslator.ToHtml(RequiredMarkColor));
+            writer.AddStyleAttribute(HtmlTextWriterStyle.MarginLeft, "4px");
+            writer.AddStyleAttribute(HtmlTextWriterStyle.MarginRight, "4px");
             writer.RenderBeginTag(HtmlTextWriterTag.Span);
             writer.WriteEncodedText("*");
             writer.RenderEndTag();

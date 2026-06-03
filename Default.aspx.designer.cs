@@ -78,6 +78,33 @@ namespace WebForm
         protected global::System.Web.UI.WebControls.CheckBox BaseReadOnlyCheckBox;
 
         /// <summary>
+        /// ModeDropDownLabel コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.CustomLabel ModeDropDownLabel;
+
+        /// <summary>
+        /// ModeDropDown1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.ModeDropDown ModeDropDown1;
+
+        /// <summary>
+        /// ModeReadOnlyCheckBox コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ModeReadOnlyCheckBox;
+
+        /// <summary>
         /// PostButton コントロール。
         /// </summary>
         /// <remarks>
