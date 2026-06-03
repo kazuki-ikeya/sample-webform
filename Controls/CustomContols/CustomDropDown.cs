@@ -14,13 +14,6 @@ namespace WebForm.Controls
     [ToolboxData("<{0}:BaseDropDown runat=\"server\"></{0}:BaseDropDown>")]
     public class CustomDropDown : DropDownList
     {
-        /// <summary>
-        /// ViewStateKeys
-        /// </summary>
-        public static class ViewStateKeys
-        {
-            public const string ReadOnly = "ReadOnly";
-        }
 
         /// <summary>
         /// 初期処理
@@ -40,12 +33,12 @@ namespace WebForm.Controls
         {
             get
             {
-                object value = ViewState[ViewStateKeys.ReadOnly];
+                object value = ViewState["ReadOnly"];
                 return value != null && (bool)value;
             }
             set
             {
-                ViewState[ViewStateKeys.ReadOnly] = value;
+                ViewState["ReadOnly"] = value;
                 ApplyReadOnlyState();
             }
         }

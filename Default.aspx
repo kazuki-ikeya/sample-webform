@@ -1,5 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebForm._Default" %>
 <%@ Register Src="~/Controls/UserControls/CommonDropDown.ascx" TagPrefix="uc" TagName="CommonDropDown" %>
+<%@ Register Src="~/Controls/UserControls/CommonLabel.ascx" TagPrefix="uc" TagName="CommonLabel" %>
 <%@ Register TagPrefix="cc" Namespace="WebForm.Controls" Assembly="WebForm" %>
 
 <!DOCTYPE html>
@@ -102,6 +103,8 @@
         </main>
         <div>
             <cc:CustomLabel ID="CustomLabel1" runat="server" Text="CustomLabel"></cc:CustomLabel>
+            <br />
+            <uc:CommonLabel ID="CommonLabel1" runat="server" Text="CommonLabel" Required="true" Description="ユーザーコントロール版の必須ラベルです。" />
         </div>
     </form>
 </body>

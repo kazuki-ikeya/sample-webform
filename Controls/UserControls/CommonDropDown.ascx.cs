@@ -11,17 +11,9 @@ namespace WebForm.Controls
     /// <remarks>
     /// データソースの DataTable には、DataValueField と DataTextField に指定した列が必要です。
     /// </remarks>
+    [ToolboxData("<{0}:CommonDropDown runat=\"server\" Text=\"CommonDropDown\"></{0}:CommonDropDown>")]
     public partial class CommonDropDown : UserControl
     {
-        /// <summary>
-        /// ViewStateKeys
-        /// </summary>
-        public static class ViewStateKeys
-        {
-            public const string DataSource = "DataSource";
-            public const string SelectedValue = "SelectedValue";
-            public const string ReadOnly = "ReadOnly";
-        }
 
         /// <summary>
         /// 項目値として使用するデータソースの列名を取得または設定します。
@@ -69,11 +61,11 @@ namespace WebForm.Controls
         {
             get
             {
-                return ViewState[ViewStateKeys.DataSource] as DataTable;
+                return ViewState["DataSource"] as DataTable;
             }
             set
             {
-                ViewState[ViewStateKeys.DataSource] = value;
+                ViewState["DataSource"] = value;
                 BindDataSource(value);
             }
         }
@@ -92,7 +84,7 @@ namespace WebForm.Controls
             }
             set
             {
-                ViewState[ViewStateKeys.SelectedValue] = value;
+                ViewState["SelectedValue"] = value;
                 EnsureDataBound();
                 ApplySelectedValue(value);
             }
@@ -126,12 +118,12 @@ namespace WebForm.Controls
         {
             get
             {
-                object value = ViewState[ViewStateKeys.ReadOnly];
+                object value = ViewState["ReadOnly"];
                 return value != null && (bool)value;
             }
             set
             {
-                ViewState[ViewStateKeys.ReadOnly] = value;
+                ViewState["ReadOnly"] = value;
                 ApplyReadOnlyState();
             }
         }
@@ -150,7 +142,7 @@ namespace WebForm.Controls
             else if (ReadOnly)
             {
                 EnsureDataBound();
-                ApplySelectedValue(ViewState[ViewStateKeys.SelectedValue] as string);
+                ApplySelectedValue(ViewState["SelectedValue"] as string);
             }
         }
 
@@ -162,7 +154,7 @@ namespace WebForm.Controls
         {
             base.OnPreRender(e);
 
-            ViewState[ViewStateKeys.SelectedValue] = CommonDropDownList.SelectedValue;
+            ViewState["SelectedValue"] = CommonDropDownList.SelectedValue;
             ApplyReadOnlyState();
         }
 
@@ -195,7 +187,7 @@ namespace WebForm.Controls
             CommonDropDownList.DataSource = dataSource;
             CommonDropDownList.DataBind();
 
-            ApplySelectedValue(ViewState[ViewStateKeys.SelectedValue] as string);
+            ApplySelectedValue(ViewState["SelectedValue"] as string);
         }
 
         /// <summary>

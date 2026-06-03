@@ -112,5 +112,14 @@ namespace WebForm
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::WebForm.Controls.CustomLabel CustomLabel1;
+
+        /// <summary>
+        /// CommonLabel1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.CommonLabel CommonLabel1;
     }
 }
