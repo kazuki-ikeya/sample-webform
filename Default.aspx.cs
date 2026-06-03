@@ -17,8 +17,14 @@ namespace WebForm
         {
             if (!IsPostBack)
             {
-                CommonDropDown1.DataSource = CreateSampleDropDownDataSource();
+                DataTable dataSource = CreateSampleDropDownDataSource();
+                CommonDropDown1.DataSource = dataSource;
                 CommonDropDown1.SelectedValue = "2";
+
+                BaseDropDown1.DataSource = dataSource;
+                BaseDropDown1.DataBind();
+                BaseDropDown1.SelectedValue = "2";
+
                 ApplyReadOnly();
 
                 ShowPostResult("初期表示");
@@ -52,7 +58,8 @@ namespace WebForm
         /// </summary>
         private void ApplyReadOnly()
         {
-            CommonDropDown1.ReadOnly = ReadOnlyCheckBox.Checked;
+            CommonDropDown1.ReadOnly = CommonReadOnlyCheckBox.Checked;
+            BaseDropDown1.ReadOnly = BaseReadOnlyCheckBox.Checked;
         }
 
         /// <summary>
@@ -61,13 +68,17 @@ namespace WebForm
         /// <param name="actionName">実行された操作名。</param>
         private void ShowPostResult(string actionName)
         {
-            string roleKbn = CommonDropDown1.SelectedValue;
+            string commonRoleKbn = CommonDropDown1.SelectedValue;
+            string baseRoleKbn = BaseDropDown1.SelectedValue;
 
-            StatusLabel.Text = "現在の ReadOnly: " + CommonDropDown1.ReadOnly;
+            StatusLabel.Text =
+                "CommonDropDown ReadOnly: " + CommonDropDown1.ReadOnly +
+                " / BaseDropDown ReadOnly: " + BaseDropDown1.ReadOnly;
             MessageLabel.Text =
                 "操作: " + actionName + "<br />" +
                 "IsPostBack: " + IsPostBack + "<br />" +
-                "選択された権限区分: " + Server.HtmlEncode(roleKbn);
+                "CommonDropDown 選択値: " + Server.HtmlEncode(commonRoleKbn) + "<br />" +
+                "BaseDropDown 選択値: " + Server.HtmlEncode(baseRoleKbn);
         }
 
         /// <summary>
@@ -80,10 +91,10 @@ namespace WebForm
             dataTable.Columns.Add("Value", typeof(string));
             dataTable.Columns.Add("Text", typeof(string));
 
-            dataTable.Rows.Add(string.Empty, "\u672a\u9078\u629e");
-            dataTable.Rows.Add("1", "\u7ba1\u7406\u8005");
-            dataTable.Rows.Add("2", "\u4e00\u822c\u30e6\u30fc\u30b6\u30fc");
-            dataTable.Rows.Add("3", "\u30b2\u30b9\u30c8");
+            dataTable.Rows.Add(string.Empty, "未選択");
+            dataTable.Rows.Add("1", "管理者");
+            dataTable.Rows.Add("2", "一般ユーザー");
+            dataTable.Rows.Add("3", "ゲスト");
 
             return dataTable;
         }

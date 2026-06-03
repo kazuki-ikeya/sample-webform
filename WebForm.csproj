@@ -57,6 +57,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BaseDropDown.cs" />
     <Compile Include="Controls\CommonDropDown.ascx.cs">
       <DependentUpon>CommonDropDown.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

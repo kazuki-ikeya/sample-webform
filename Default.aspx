@@ -1,11 +1,12 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebForm._Default" %>
 <%@ Register Src="~/Controls/CommonDropDown.ascx" TagPrefix="uc" TagName="CommonDropDown" %>
+<%@ Register TagPrefix="cc" Namespace="WebForm.Controls" Assembly="WebForm" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>CommonDropDown POST サンプル</title>
+    <title>DropDown ReadOnly サンプル</title>
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
@@ -64,15 +65,24 @@
 <body>
     <form id="form1" runat="server">
         <main>
-            <h1>CommonDropDown POST サンプル</h1>
+            <h1>DropDown ReadOnly サンプル</h1>
             <div class="sample-form">
                 <div class="field">
-                    <asp:Label ID="DropDownLabel" runat="server" AssociatedControlID="CommonDropDown1" Text="test" />
+                    <asp:Label ID="CommonDropDownLabel" runat="server" AssociatedControlID="CommonDropDown1" Text="CommonDropDown" />
                     <uc:CommonDropDown ID="CommonDropDown1" runat="server" />
                 </div>
 
                 <div class="check-field">
-                    <asp:CheckBox ID="ReadOnlyCheckBox" runat="server" Text="ReadOnly にする" AutoPostBack="true" OnCheckedChanged="ReadOnlyCheckBox_CheckedChanged" />
+                    <asp:CheckBox ID="CommonReadOnlyCheckBox" runat="server" Text="CommonDropDown を ReadOnly にする" AutoPostBack="true" OnCheckedChanged="ReadOnlyCheckBox_CheckedChanged" />
+                </div>
+
+                <div class="field">
+                    <asp:Label ID="BaseDropDownLabel" runat="server" AssociatedControlID="BaseDropDown1" Text="BaseDropDown" />
+                    <cc:BaseDropDown ID="BaseDropDown1" runat="server" DataValueField="Value" DataTextField="Text" />
+                </div>
+
+                <div class="check-field">
+                    <asp:CheckBox ID="BaseReadOnlyCheckBox" runat="server" Text="BaseDropDown を ReadOnly にする" AutoPostBack="true" OnCheckedChanged="ReadOnlyCheckBox_CheckedChanged" />
                 </div>
 
                 <div class="actions">

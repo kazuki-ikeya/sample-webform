@@ -24,13 +24,13 @@ namespace WebForm
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// DropDownLabel コントロール。
+        /// CommonDropDownLabel コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DropDownLabel;
+        protected global::System.Web.UI.WebControls.Label CommonDropDownLabel;
 
         /// <summary>
         /// CommonDropDown1 コントロール。
@@ -42,13 +42,40 @@ namespace WebForm
         protected global::WebForm.Controls.CommonDropDown CommonDropDown1;
 
         /// <summary>
-        /// ReadOnlyCheckBox コントロール。
+        /// CommonReadOnlyCheckBox コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ReadOnlyCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox CommonReadOnlyCheckBox;
+
+        /// <summary>
+        /// BaseDropDownLabel コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label BaseDropDownLabel;
+
+        /// <summary>
+        /// BaseDropDown1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.BaseDropDown BaseDropDown1;
+
+        /// <summary>
+        /// BaseReadOnlyCheckBox コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox BaseReadOnlyCheckBox;
 
         /// <summary>
         /// PostButton コントロール。
