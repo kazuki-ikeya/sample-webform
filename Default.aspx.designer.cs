@@ -30,7 +30,7 @@ namespace WebForm
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CommonDropDownLabel;
+        protected global::WebForm.Controls.CustomLabel CommonDropDownLabel;
 
         /// <summary>
         /// CommonDropDown1 コントロール。
@@ -57,7 +57,7 @@ namespace WebForm
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BaseDropDownLabel;
+        protected global::WebForm.Controls.CustomLabel BaseDropDownLabel;
 
         /// <summary>
         /// BaseDropDown1 コントロール。
@@ -66,7 +66,7 @@ namespace WebForm
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::WebForm.Controls.BaseDropDown BaseDropDown1;
+        protected global::WebForm.Controls.CustomDropDown BaseDropDown1;
 
         /// <summary>
         /// BaseReadOnlyCheckBox コントロール。
@@ -103,5 +103,14 @@ namespace WebForm
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageLabel;
+
+        /// <summary>
+        /// CustomLabel1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.CustomLabel CustomLabel1;
     }
 }

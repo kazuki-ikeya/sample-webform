@@ -52,17 +52,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controls\CommonDropDown.ascx" />
+    <Content Include="Controls\UserControls\CommonDropDown.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\BaseDropDown.cs" />
-    <Compile Include="Controls\CommonDropDown.ascx.cs">
+    <Compile Include="Controls\CustomContols\CustomDropDown.cs" />
+    <Compile Include="Controls\CustomContols\CustomLabel.cs" />
+    <Compile Include="Controls\UserControls\CommonDropDown.ascx.cs">
       <DependentUpon>CommonDropDown.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\CommonDropDown.ascx.designer.cs">
+    <Compile Include="Controls\UserControls\CommonDropDown.ascx.designer.cs">
       <DependentUpon>CommonDropDown.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">

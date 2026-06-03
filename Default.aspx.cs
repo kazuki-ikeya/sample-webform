@@ -18,9 +18,13 @@ namespace WebForm
             if (!IsPostBack)
             {
                 DataTable dataSource = CreateSampleDropDownDataSource();
+                CommonDropDown1.DataValueField = "Key";
+                CommonDropDown1.DataTextField = "Name";
                 CommonDropDown1.DataSource = dataSource;
                 CommonDropDown1.SelectedValue = "2";
 
+                BaseDropDown1.DataValueField = "Key";
+                BaseDropDown1.DataTextField = "Name";
                 BaseDropDown1.DataSource = dataSource;
                 BaseDropDown1.DataBind();
                 BaseDropDown1.SelectedValue = "2";
@@ -88,8 +92,8 @@ namespace WebForm
         private static DataTable CreateSampleDropDownDataSource()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Value", typeof(string));
-            dataTable.Columns.Add("Text", typeof(string));
+            dataTable.Columns.Add("Key", typeof(string));
+            dataTable.Columns.Add("Name", typeof(string));
 
             dataTable.Rows.Add(string.Empty, "未選択");
             dataTable.Rows.Add("1", "管理者");

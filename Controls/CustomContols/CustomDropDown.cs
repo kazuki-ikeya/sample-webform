@@ -12,7 +12,7 @@ namespace WebForm.Controls
     /// データソースの DataTable には、DataValueField と DataTextField に指定した列が必要です。
     /// </remarks>
     [ToolboxData("<{0}:BaseDropDown runat=\"server\"></{0}:BaseDropDown>")]
-    public class BaseDropDown : DropDownList
+    public class CustomDropDown : DropDownList
     {
         /// <summary>
         /// ViewStateKeys
@@ -23,13 +23,12 @@ namespace WebForm.Controls
         }
 
         /// <summary>
-        /// インスタンス初期化
+        /// 初期処理
         /// </summary>
-        public BaseDropDown()
+        public CustomDropDown()
         {
 
         }
-
 
         /// <summary>
         /// 拡張プロパティ：Readonly
@@ -52,9 +51,9 @@ namespace WebForm.Controls
         }
 
         /// <summary>
-        /// Load イベント
+        /// Load
         /// </summary>
-        /// <param name="e">イベントデータ。</param>
+        /// <param name="e">イベントデータ</param>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -63,7 +62,7 @@ namespace WebForm.Controls
         /// <summary>
         /// コントロールの描画前に最終状態を適用します。
         /// </summary>
-        /// <param name="e">イベントデータ。</param>
+        /// <param name="e">イベントデータ</param>
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
@@ -93,5 +92,6 @@ namespace WebForm.Controls
                 Style.Remove("pointer-events");
             }
         }
+
     }
 }
