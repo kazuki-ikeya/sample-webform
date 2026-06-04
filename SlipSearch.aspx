@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>伝票検索</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
@@ -100,41 +102,41 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <main>
-            <h1>伝票検索</h1>
+        <main class="container py-4">
+            <h1 class="h3 mb-4">伝票検索</h1>
 
-            <table class="search-table">
+            <table class="table table-bordered align-middle search-table">
                 <tbody>
                     <tr>
                         <th>
-                            <asp:Label ID="SlipNoLabel" runat="server" AssociatedControlID="SlipNoTextBox" Text="伝票番号" />
+                            <asp:Label ID="SlipNoLabel" runat="server" AssociatedControlID="SlipNoTextBox" Text="伝票番号" CssClass="form-label mb-0" />
                         </th>
                         <td>
-                            <asp:TextBox ID="SlipNoTextBox" runat="server" />
+                            <asp:TextBox ID="SlipNoTextBox" runat="server" CssClass="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            <asp:Label ID="TitleLabel" runat="server" AssociatedControlID="TitleTextBox" Text="タイトル" />
+                            <asp:Label ID="TitleLabel" runat="server" AssociatedControlID="TitleTextBox" Text="タイトル" CssClass="form-label mb-0" />
                         </th>
                         <td>
-                            <asp:TextBox ID="TitleTextBox" runat="server" />
+                            <asp:TextBox ID="TitleTextBox" runat="server" CssClass="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            <asp:Label ID="SlipDateLabel" runat="server" AssociatedControlID="SlipDateTextBox" Text="伝票日付" />
+                            <asp:Label ID="SlipDateLabel" runat="server" AssociatedControlID="SlipDateTextBox" Text="伝票日付" CssClass="form-label mb-0" />
                         </th>
                         <td>
-                            <asp:TextBox ID="SlipDateTextBox" runat="server" />
+                            <asp:TextBox ID="SlipDateTextBox" runat="server" CssClass="form-control" />
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="actions">
-                <asp:Button ID="SearchButton" runat="server" Text="検索" CssClass="button" OnClick="SearchButton_Click" />
-                <asp:Label ID="ErrorMessageLabel" runat="server" CssClass="error-message" EnableViewState="false" />
+            <div class="actions d-flex align-items-start gap-3">
+                <asp:Button ID="SearchButton" runat="server" Text="検索" CssClass="btn btn-primary" OnClick="SearchButton_Click" />
+                <asp:Label ID="ErrorMessageLabel" runat="server" CssClass="text-danger fw-semibold mt-2" EnableViewState="false" />
             </div>
 
             <asp:GridView
@@ -144,7 +146,7 @@
                 AllowSorting="true"
                 AllowPaging="true"
                 PageSize="10"
-                CssClass="result-grid"
+                CssClass="table table-striped table-bordered table-hover align-middle result-grid"
                 EmptyDataText="該当する伝票はありません。"
                 OnSorting="SlipGridView_Sorting"
                 OnPageIndexChanging="SlipGridView_PageIndexChanging">
@@ -163,5 +165,6 @@
             </asp:GridView>
         </main>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

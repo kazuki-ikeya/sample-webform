@@ -60,6 +60,11 @@ namespace WebForm.Controls
         {
             base.OnPreRender(e);
 
+            if (string.IsNullOrWhiteSpace(CssClass))
+            {
+                CssClass = "form-select";
+            }
+
             ApplyReadOnlyState();
         }
 
