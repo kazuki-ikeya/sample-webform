@@ -1,18 +1,35 @@
+//------------------------------------------------------------------------------
+// <自動生成>
+//     このコードはツールによって生成されました。
+//
+//     このファイルへの変更は、正しくない動作の原因になる可能性があり、
+//     コードが再生成されるときに損失したりします。 
+// </自動生成>
+//------------------------------------------------------------------------------
+
 namespace WebForm.Controls
 {
-    /// <summary>
-    /// ModeDropDown.ascx の自動生成フィールド定義です。
-    /// </summary>
+
+
     public partial class ModeDropDown
     {
+
         /// <summary>
-        /// 編集時に表示するプルダウンです。
+        /// ModeDropDownList コントロール。
         /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ModeDropDownList;
 
         /// <summary>
-        /// ReadOnly 時に表示するラベルです。
+        /// ModeLabel コントロール。
         /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Label ModeLabel;
     }
 }
