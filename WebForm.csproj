@@ -56,6 +56,7 @@
     <Content Include="Controls\UserControls\CommonLabel.ascx" />
     <Content Include="Controls\UserControls\ModeDropDown.ascx" />
     <Content Include="Default.aspx" />
+    <Content Include="SlipSearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +91,15 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SlipModel.cs" />
+    <Compile Include="Services\SlipSampleService.cs" />
+    <Compile Include="SlipSearch.aspx.cs">
+      <DependentUpon>SlipSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlipSearch.aspx.designer.cs">
+      <DependentUpon>SlipSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
