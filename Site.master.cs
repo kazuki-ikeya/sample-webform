@@ -17,11 +17,20 @@ namespace WebForm
         {
             if (!IsPostBack)
             {
-                ContentTitleLabel.Text = "共通ヘッダー(MasterPage)";
-                ContentDescriptionLabel.Text = "ASP.NET Web Forms サンプル";
                 HeaderStatusLabel.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
                 ApplySelectedMenu();
             }
+        }
+
+        /// <summary>
+        /// 共通ヘッダーのタイトルと説明を設定します。
+        /// </summary>
+        /// <param name="title">タイトル。</param>
+        /// <param name="description">説明文。</param>
+        public void SetHeaderText(string title, string description)
+        {
+            ContentTitleLabel.Text = title;
+            ContentDescriptionLabel.Text = description;
         }
 
         /// <summary>
@@ -44,8 +53,9 @@ namespace WebForm
                 return;
             }
 
-            ContentTitleLabel.Text = SampleTreeView.SelectedNode.Text;
-            ContentDescriptionLabel.Text = GetDescription(SampleTreeView.SelectedNode.Value);
+            SetHeaderText(
+                SampleTreeView.SelectedNode.Text,
+                GetDescription(SampleTreeView.SelectedNode.Value));
             SelectedValueLabel.Text = SampleTreeView.SelectedNode.Value;
             SelectedPathLabel.Text = SampleTreeView.SelectedNode.ValuePath;
         }

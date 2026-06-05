@@ -42,134 +42,13 @@
             text-decoration: none;
         }
 
-            .tree-menu a:hover {
-                color: #0d6efd;
-                text-decoration: underline;
-            }
+        .tree-menu a:hover {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
 
         .tree-menu table {
             margin: 2px 0;
-        }
-    </style>
-    <style>
-        h1 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .sample-form {
-            display: grid;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .field {
-            display: grid;
-            gap: 6px;
-        }
-
-            .field label,
-            .check-field label {
-                font-weight: 600;
-            }
-
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .button {
-            padding: 8px 14px;
-            border: 1px solid #0969da;
-            border-radius: 6px;
-            background: #0969da;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .message {
-            padding: 16px;
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-            background: #f6f8fa;
-        }
-
-        .input-table {
-            width: 100%;
-            margin-top: 24px;
-            border-collapse: collapse;
-            border: 1px solid #b6c6d8;
-        }
-
-            .input-table th,
-            .input-table td {
-                padding: 10px 12px;
-                border: 1px solid #b6c6d8;
-                vertical-align: middle;
-            }
-
-            .input-table th {
-                width: 180px;
-                background: #dbeafe;
-                color: #17324d;
-                text-align: left;
-                font-weight: 600;
-            }
-
-            .input-table input,
-            .input-table select,
-            .input-table textarea {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 7px 8px;
-                border: 1px solid #b6c6d8;
-                border-radius: 4px;
-                font: inherit;
-            }
-
-            .input-table textarea {
-                min-height: 72px;
-                resize: vertical;
-            }
-
-        .panel-button-list {
-            display: flex;
-            gap: 12px;
-            margin: 0 0 24px;
-        }
-
-        .panel-button {
-            flex: 1 1 0;
-            min-height: 86px;
-            padding: 14px 16px;
-            border: 1px solid #b6c6d8;
-            border-radius: 8px;
-            background: #f8fbff;
-            color: #17324d;
-            text-align: left;
-            text-decoration: none;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
-        }
-
-            .panel-button:hover,
-            .panel-button:focus {
-                border-color: #0d6efd;
-                background: #eef6ff;
-                color: #0a58ca;
-                text-decoration: none;
-            }
-
-        .panel-button-title {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .panel-button-text {
-            display: block;
-            font-size: 0.875rem;
-            color: #5b6b7f;
         }
     </style>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
@@ -178,8 +57,8 @@
     <form id="form1" runat="server">
         <header class="app-header d-flex align-items-center px-4">
             <div>
-                <asp:Label ID="ContentTitleLabel" runat="server" CssClass="h4 d-block mb-3" />
-                <asp:Label ID="ContentDescriptionLabel" runat="server" CssClass="text-muted d-block mb-4" />
+                <asp:Label ID="ContentTitleLabel" runat="server" CssClass="h4 d-block mb-1" />
+                <asp:Label ID="ContentDescriptionLabel" runat="server" CssClass="small opacity-75 d-block" />
             </div>
             <div class="ms-auto small">
                 <asp:Label ID="HeaderStatusLabel" runat="server" />
@@ -217,10 +96,9 @@
             </aside>
 
             <main class="content-area flex-grow-1 p-4">
-                <div class="card border-0 shadow-sm">
+                <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-
-                        <div class="row g-3 mb-4">
+                        <div class="row g-3">
                             <div class="col-md-4">
                                 <div class="border rounded p-3 bg-light">
                                     <div class="fw-semibold">選択値</div>
@@ -240,9 +118,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </main>
         </div>
