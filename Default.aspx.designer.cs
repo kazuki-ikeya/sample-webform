@@ -177,15 +177,6 @@ namespace WebForm
         protected global::System.Web.UI.WebControls.Label StatusLabel;
 
         /// <summary>
-        /// MessageLabel コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageLabel;
-
-        /// <summary>
         /// DefaultValidationSummary コントロール。
         /// </summary>
         /// <remarks>
@@ -193,6 +184,15 @@ namespace WebForm
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary DefaultValidationSummary;
+
+        /// <summary>
+        /// MessageLabel コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MessageLabel;
 
         /// <summary>
         /// CustomLabel1 コントロール。

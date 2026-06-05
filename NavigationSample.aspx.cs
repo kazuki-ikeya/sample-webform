@@ -17,7 +17,6 @@ namespace WebForm
         {
             if (!IsPostBack)
             {
-                HeaderStatusLabel.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
                 ApplySelectedMenu();
             }
         }

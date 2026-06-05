@@ -1,12 +1,8 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NavigationSample.aspx.cs" Inherits="WebForm.NavigationSample" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NavigationSample.aspx.cs" Inherits="WebForm.NavigationSample" MasterPageFile="~/Site.master" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ヘッダー・ツリーメニュー サンプル</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+<asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">ヘッダー・ツリーメニュー サンプル</asp:Content>
+
+<asp:Content ID="HeadContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style>
         body {
             background: #f6f8fb;
@@ -49,80 +45,67 @@
             margin: 2px 0;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <header class="app-header d-flex align-items-center px-4">
-            <div>
-                <div class="h5 mb-0">共通ヘッダー</div>
-                <div class="small opacity-75">ASP.NET Web Forms サンプル</div>
-            </div>
-            <div class="ms-auto small">
-                <asp:Label ID="HeaderStatusLabel" runat="server" />
-            </div>
-        </header>
+</asp:Content>
 
-        <div class="app-shell d-flex">
-            <aside class="side-menu p-3">
-                <div class="fw-semibold mb-3">メニュー</div>
-                <asp:TreeView
-                    ID="SampleTreeView"
-                    runat="server"
-                    CssClass="tree-menu"
-                    ExpandDepth="2"
-                    ShowLines="true"
-                    OnSelectedNodeChanged="SampleTreeView_SelectedNodeChanged">
-                    <Nodes>
-                        <asp:TreeNode Text="ダッシュボード" Value="Dashboard" Selected="true" />
-                        <asp:TreeNode Text="伝票管理" Value="Slip">
-                            <asp:TreeNode Text="伝票検索" Value="SlipSearch" />
-                            <asp:TreeNode Text="伝票登録" Value="SlipEntry" />
-                            <asp:TreeNode Text="伝票承認" Value="SlipApproval" />
-                        </asp:TreeNode>
-                        <asp:TreeNode Text="マスタ管理" Value="Master">
-                            <asp:TreeNode Text="取引先マスタ" Value="CustomerMaster" />
-                            <asp:TreeNode Text="部門マスタ" Value="DepartmentMaster" />
-                            <asp:TreeNode Text="ユーザーマスタ" Value="UserMaster" />
-                        </asp:TreeNode>
-                        <asp:TreeNode Text="設定" Value="Settings">
-                            <asp:TreeNode Text="画面設定" Value="DisplaySettings" />
-                            <asp:TreeNode Text="権限設定" Value="PermissionSettings" />
-                        </asp:TreeNode>
-                    </Nodes>
-                </asp:TreeView>
-            </aside>
+<asp:Content ID="MainContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div class="app-shell d-flex">
+        <aside class="side-menu p-3">
+            <div class="fw-semibold mb-3">メニュー</div>
+            <asp:TreeView
+                ID="SampleTreeView"
+                runat="server"
+                CssClass="tree-menu"
+                ExpandDepth="2"
+                ShowLines="true"
+                OnSelectedNodeChanged="SampleTreeView_SelectedNodeChanged">
+                <Nodes>
+                    <asp:TreeNode Text="ダッシュボード" Value="Dashboard" Selected="true" />
+                    <asp:TreeNode Text="伝票管理" Value="Slip">
+                        <asp:TreeNode Text="伝票検索" Value="SlipSearch" />
+                        <asp:TreeNode Text="伝票登録" Value="SlipEntry" />
+                        <asp:TreeNode Text="伝票承認" Value="SlipApproval" />
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="マスタ管理" Value="Master">
+                        <asp:TreeNode Text="取引先マスタ" Value="CustomerMaster" />
+                        <asp:TreeNode Text="部門マスタ" Value="DepartmentMaster" />
+                        <asp:TreeNode Text="ユーザーマスタ" Value="UserMaster" />
+                    </asp:TreeNode>
+                    <asp:TreeNode Text="設定" Value="Settings">
+                        <asp:TreeNode Text="画面設定" Value="DisplaySettings" />
+                        <asp:TreeNode Text="権限設定" Value="PermissionSettings" />
+                    </asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>
+        </aside>
 
-            <main class="content-area flex-grow-1 p-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body">
-                        <asp:Label ID="ContentTitleLabel" runat="server" CssClass="h4 d-block mb-3" />
-                        <asp:Label ID="ContentDescriptionLabel" runat="server" CssClass="text-muted d-block mb-4" />
+        <main class="content-area flex-grow-1 p-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <asp:Label ID="ContentTitleLabel" runat="server" CssClass="h4 d-block mb-3" />
+                    <asp:Label ID="ContentDescriptionLabel" runat="server" CssClass="text-muted d-block mb-4" />
 
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="border rounded p-3 bg-light">
-                                    <div class="fw-semibold">選択値</div>
-                                    <asp:Label ID="SelectedValueLabel" runat="server" CssClass="text-muted" />
-                                </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="border rounded p-3 bg-light">
+                                <div class="fw-semibold">選択値</div>
+                                <asp:Label ID="SelectedValueLabel" runat="server" CssClass="text-muted" />
                             </div>
-                            <div class="col-md-4">
-                                <div class="border rounded p-3 bg-light">
-                                    <div class="fw-semibold">階層</div>
-                                    <asp:Label ID="SelectedPathLabel" runat="server" CssClass="text-muted" />
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="border rounded p-3 bg-light">
+                                <div class="fw-semibold">階層</div>
+                                <asp:Label ID="SelectedPathLabel" runat="server" CssClass="text-muted" />
                             </div>
-                            <div class="col-md-4">
-                                <div class="border rounded p-3 bg-light">
-                                    <div class="fw-semibold">状態</div>
-                                    <span class="text-muted">選択中のメニュー内容を表示しています。</span>
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="border rounded p-3 bg-light">
+                                <div class="fw-semibold">状態</div>
+                                <span class="text-muted">選択中のメニュー内容を表示しています。</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-</html>
+            </div>
+        </main>
+    </div>
+</asp:Content>

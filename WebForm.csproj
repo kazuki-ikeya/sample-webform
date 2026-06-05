@@ -58,6 +58,7 @@
     <Content Include="Controls\UserControls\ModeDropDown.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="NavigationSample.aspx" />
+    <Content Include="Site.master" />
     <Content Include="SlipSearch.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="NavigationSample.aspx.designer.cs">
       <DependentUpon>NavigationSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
     </Compile>
     <Compile Include="Models\SlipModel.cs" />
     <Compile Include="Services\SlipSampleService.cs" />

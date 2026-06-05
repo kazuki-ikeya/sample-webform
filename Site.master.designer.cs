@@ -11,52 +11,61 @@ namespace WebForm
 {
 
 
-    public partial class NavigationSample
+    public partial class SiteMaster
     {
 
         /// <summary>
-        /// SampleTreeView コントロール。
+        /// TitleContent コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView SampleTreeView;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder TitleContent;
 
         /// <summary>
-        /// ContentTitleLabel コントロール。
+        /// HeadContent コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ContentTitleLabel;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
 
         /// <summary>
-        /// ContentDescriptionLabel コントロール。
+        /// form1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ContentDescriptionLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// SelectedValueLabel コントロール。
+        /// HeaderStatusLabel コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SelectedValueLabel;
+        protected global::System.Web.UI.WebControls.Label HeaderStatusLabel;
 
         /// <summary>
-        /// SelectedPathLabel コントロール。
+        /// MainContent コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SelectedPathLabel;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+
+        /// <summary>
+        /// ScriptContent コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptContent;
     }
 }
