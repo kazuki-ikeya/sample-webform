@@ -1,151 +1,14 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebForm._Default" %>
+<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebForm._Default" %>
 <%@ Register Src="~/Controls/UserControls/CommonDropDown.ascx" TagPrefix="uc" TagName="CommonDropDown" %>
 <%@ Register Src="~/Controls/UserControls/CommonLabel.ascx" TagPrefix="uc" TagName="CommonLabel" %>
 <%@ Register Src="~/Controls/UserControls/ModeDate.ascx" TagPrefix="uc" TagName="ModeDate" %>
 <%@ Register Src="~/Controls/UserControls/ModeDropDown.ascx" TagPrefix="uc" TagName="ModeDropDown" %>
 <%@ Register TagPrefix="cc" Namespace="WebForm.Controls" Assembly="WebForm" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DropDown ReadOnly サンプル</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <style>
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            margin: 40px;
-            color: #222;
-        }
+<asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">ヘッダー・ツリーメニュー サンプル</asp:Content>
 
-        main {
-            max-width: 720px;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .sample-form {
-            display: grid;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .field {
-            display: grid;
-            gap: 6px;
-        }
-
-        .field label,
-        .check-field label {
-            font-weight: 600;
-        }
-
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .button {
-            padding: 8px 14px;
-            border: 1px solid #0969da;
-            border-radius: 6px;
-            background: #0969da;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .message {
-            padding: 16px;
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-            background: #f6f8fa;
-        }
-
-        .input-table {
-            width: 100%;
-            margin-top: 24px;
-            border-collapse: collapse;
-            border: 1px solid #b6c6d8;
-        }
-
-        .input-table th,
-        .input-table td {
-            padding: 10px 12px;
-            border: 1px solid #b6c6d8;
-            vertical-align: middle;
-        }
-
-        .input-table th {
-            width: 180px;
-            background: #dbeafe;
-            color: #17324d;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .input-table input,
-        .input-table select,
-        .input-table textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 7px 8px;
-            border: 1px solid #b6c6d8;
-            border-radius: 4px;
-            font: inherit;
-        }
-
-        .input-table textarea {
-            min-height: 72px;
-            resize: vertical;
-        }
-
-        .panel-button-list {
-            display: flex;
-            gap: 12px;
-            margin: 0 0 24px;
-        }
-
-        .panel-button {
-            flex: 1 1 0;
-            min-height: 86px;
-            padding: 14px 16px;
-            border: 1px solid #b6c6d8;
-            border-radius: 8px;
-            background: #f8fbff;
-            color: #17324d;
-            text-align: left;
-            text-decoration: none;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
-        }
-
-        .panel-button:hover,
-        .panel-button:focus {
-            border-color: #0d6efd;
-            background: #eef6ff;
-            color: #0a58ca;
-            text-decoration: none;
-        }
-
-        .panel-button-title {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .panel-button-text {
-            display: block;
-            font-size: 0.875rem;
-            color: #5b6b7f;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="MainContent" runat="server" ContentPlaceHolderID="MainContent">
+   
         <main class="container py-4">
             <h1 class="h3 mb-4">DropDown ReadOnly サンプル</h1>
             <div class="panel-button-list">
@@ -261,7 +124,6 @@
                 </tr>
             </tbody>
         </table>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-</html>
+   
+</asp:Content>
+
