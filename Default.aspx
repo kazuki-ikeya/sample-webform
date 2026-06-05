@@ -103,12 +103,65 @@
             min-height: 72px;
             resize: vertical;
         }
+
+        .panel-button-list {
+            display: flex;
+            gap: 12px;
+            margin: 0 0 24px;
+        }
+
+        .panel-button {
+            flex: 1 1 0;
+            min-height: 86px;
+            padding: 14px 16px;
+            border: 1px solid #b6c6d8;
+            border-radius: 8px;
+            background: #f8fbff;
+            color: #17324d;
+            text-align: left;
+            text-decoration: none;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+        }
+
+        .panel-button:hover,
+        .panel-button:focus {
+            border-color: #0d6efd;
+            background: #eef6ff;
+            color: #0a58ca;
+            text-decoration: none;
+        }
+
+        .panel-button-title {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .panel-button-text {
+            display: block;
+            font-size: 0.875rem;
+            color: #5b6b7f;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <main class="container py-4">
             <h1 class="h3 mb-4">DropDown ReadOnly サンプル</h1>
+            <div class="panel-button-list">
+                <asp:LinkButton ID="PanelSearchButton" runat="server" CssClass="panel-button" CausesValidation="false" CommandName="Search" OnClick="PanelButton_Click">
+                    <span class="panel-button-title">検索</span>
+                    <span class="panel-button-text">条件を指定して一覧を確認します。</span>
+                </asp:LinkButton>
+                <asp:LinkButton ID="PanelRegisterButton" runat="server" CssClass="panel-button" CausesValidation="false" CommandName="Register" OnClick="PanelButton_Click">
+                    <span class="panel-button-title">登録</span>
+                    <span class="panel-button-text">新しいデータの入力を開始します。</span>
+                </asp:LinkButton>
+                <asp:LinkButton ID="PanelExportButton" runat="server" CssClass="panel-button" CausesValidation="false" CommandName="Export" OnClick="PanelButton_Click">
+                    <span class="panel-button-title">出力</span>
+                    <span class="panel-button-text">表示中の内容を出力します。</span>
+                </asp:LinkButton>
+            </div>
             <div class="sample-form">
                 <div class="field mb-3">
                     <cc:CustomLabel ID="CommonDropDownLabel" runat="server" AssociatedControlID="CommonDropDown1" Text="CommonDropDown" Required="true" Description="ユーザーコントロール版のドロップダウンです。" />

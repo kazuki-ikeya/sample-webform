@@ -84,6 +84,20 @@ namespace WebForm
         }
 
         /// <summary>
+        /// パネル風ボタンクリック時の処理を行います。
+        /// </summary>
+        /// <param name="sender">イベント発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        protected void PanelButton_Click(object sender, EventArgs e)
+        {
+            LinkButton button = sender as LinkButton;
+            string commandName = button == null ? string.Empty : button.CommandName;
+
+            ApplyReadOnly();
+            ShowPostResult("パネルボタン: " + commandName);
+        }
+
+        /// <summary>
         /// CommonDropDown に ReadOnly 状態を適用します。
         /// </summary>
         private void ApplyReadOnly()
