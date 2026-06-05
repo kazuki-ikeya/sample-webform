@@ -1,6 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebForm._Default" %>
 <%@ Register Src="~/Controls/UserControls/CommonDropDown.ascx" TagPrefix="uc" TagName="CommonDropDown" %>
 <%@ Register Src="~/Controls/UserControls/CommonLabel.ascx" TagPrefix="uc" TagName="CommonLabel" %>
+<%@ Register Src="~/Controls/UserControls/ModeDate.ascx" TagPrefix="uc" TagName="ModeDate" %>
 <%@ Register Src="~/Controls/UserControls/ModeDropDown.ascx" TagPrefix="uc" TagName="ModeDropDown" %>
 <%@ Register TagPrefix="cc" Namespace="WebForm.Controls" Assembly="WebForm" %>
 
@@ -136,8 +137,17 @@
                     <asp:CheckBox ID="ModeReadOnlyCheckBox" runat="server" Text="ModeDropDown を ReadOnly にする" AutoPostBack="true" OnCheckedChanged="ReadOnlyCheckBox_CheckedChanged" CssClass="form-check-label" />
                 </div>
 
+                <div class="field mb-3">
+                    <cc:CustomLabel ID="ModeDateLabel" runat="server" AssociatedControlID="ModeDate1" Text="ModeDate" Required="true" Description="未来日付禁止と外部検証を確認する日付入力です。" />
+                    <uc:ModeDate ID="ModeDate1" runat="server" RejectFutureDate="true" FutureDateErrorMessage="未来日または日曜日は入力できません。" ValidationGroup="DefaultTest" />
+                </div>
+
+                <div class="check-field form-check">
+                    <asp:CheckBox ID="ModeDateReadOnlyCheckBox" runat="server" Text="ModeDate を ReadOnly にする" AutoPostBack="true" OnCheckedChanged="ReadOnlyCheckBox_CheckedChanged" CssClass="form-check-label" />
+                </div>
+
                 <div class="actions d-flex align-items-center gap-3">
-                    <asp:Button ID="PostButton" runat="server" Text="POST 送信" CssClass="btn btn-primary" OnClick="PostButton_Click" />
+                    <asp:Button ID="PostButton" runat="server" Text="POST 送信" CssClass="btn btn-primary" OnClick="PostButton_Click" ValidationGroup="DefaultTest" />
                     <asp:Label ID="StatusLabel" runat="server" CssClass="text-muted" />
                     <br />
                     <br />
@@ -147,6 +157,7 @@
                 </div>
 
                 <div class="alert alert-light border">
+                    <asp:ValidationSummary ID="DefaultValidationSummary" runat="server" ValidationGroup="DefaultTest" CssClass="text-danger fw-semibold" />
                     <asp:Label ID="MessageLabel" runat="server" />
                 </div>
             </div>

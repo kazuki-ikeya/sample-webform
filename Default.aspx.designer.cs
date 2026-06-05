@@ -105,6 +105,33 @@ namespace WebForm
         protected global::System.Web.UI.WebControls.CheckBox ModeReadOnlyCheckBox;
 
         /// <summary>
+        /// ModeDateLabel コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.CustomLabel ModeDateLabel;
+
+        /// <summary>
+        /// ModeDate1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::WebForm.Controls.ModeDate ModeDate1;
+
+        /// <summary>
+        /// ModeDateReadOnlyCheckBox コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ModeDateReadOnlyCheckBox;
+
+        /// <summary>
         /// PostButton コントロール。
         /// </summary>
         /// <remarks>
@@ -130,6 +157,15 @@ namespace WebForm
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageLabel;
+
+        /// <summary>
+        /// DefaultValidationSummary コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary DefaultValidationSummary;
 
         /// <summary>
         /// CustomLabel1 コントロール。

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Content Include="Controls\UserControls\CommonDropDown.ascx" />
     <Content Include="Controls\UserControls\CommonLabel.ascx" />
+    <Content Include="Controls\UserControls\ModeDate.ascx" />
     <Content Include="Controls\UserControls\ModeDropDown.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="SlipSearch.aspx" />
@@ -77,6 +78,13 @@
     </Compile>
     <Compile Include="Controls\UserControls\CommonLabel.ascx.designer.cs">
       <DependentUpon>CommonLabel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\ModeDate.ascx.cs">
+      <DependentUpon>ModeDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\ModeDate.ascx.designer.cs">
+      <DependentUpon>ModeDate.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\UserControls\ModeDropDown.ascx.cs">
       <DependentUpon>ModeDropDown.ascx</DependentUpon>

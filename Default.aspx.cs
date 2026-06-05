@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 
 namespace WebForm
 {
@@ -8,6 +9,17 @@ namespace WebForm
     /// </summary>
     public partial class _Default : System.Web.UI.Page
     {
+        /// <summary>
+        /// ページ初期化時の処理を行います。
+        /// </summary>
+        /// <param name="e">イベントデータ。</param>
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+
+            ModeDate1.CustomValidate += ModeDate1_CustomValidate;
+        }
+
         /// <summary>
         /// ページ読み込み時の処理を行います。
         /// </summary>
@@ -34,6 +46,8 @@ namespace WebForm
                 ModeDropDown1.DataSource = dataSource;
                 ModeDropDown1.SelectedValue = "2";
 
+                ModeDate1.SelectedDate = DateTime.Today;
+
                 ApplyReadOnly();
 
                 ShowPostResult("初期表示");
@@ -59,6 +73,13 @@ namespace WebForm
         protected void PostButton_Click(object sender, EventArgs e)
         {
             ApplyReadOnly();
+
+            if (!Page.IsValid)
+            {
+                ShowPostResult("入力エラー");
+                return;
+            }
+
             ShowPostResult("ボタン POST");
         }
 
@@ -70,6 +91,7 @@ namespace WebForm
             CommonDropDown1.ReadOnly = CommonReadOnlyCheckBox.Checked;
             BaseDropDown1.ReadOnly = BaseReadOnlyCheckBox.Checked;
             ModeDropDown1.ReadOnly = ModeReadOnlyCheckBox.Checked;
+            ModeDate1.ReadOnly = ModeDateReadOnlyCheckBox.Checked;
         }
 
         /// <summary>
@@ -81,18 +103,40 @@ namespace WebForm
             string commonRoleKbn = CommonDropDown1.SelectedValue;
             string baseRoleKbn = BaseDropDown1.SelectedValue;
             string modeRoleKbn = ModeDropDown1.SelectedValue;
+            string modeDate = ModeDate1.SelectedDate.HasValue
+                ? ModeDate1.SelectedDate.Value.ToString("yyyy/MM/dd")
+                : ModeDate1.Text;
 
             StatusLabel.Text =
                 "CommonDropDown ReadOnly: " + CommonDropDown1.ReadOnly +
                 " / BaseDropDown ReadOnly: " + BaseDropDown1.ReadOnly +
-                " / ModeDropDown ReadOnly: " + ModeDropDown1.ReadOnly;
+                " / ModeDropDown ReadOnly: " + ModeDropDown1.ReadOnly +
+                " / ModeDate ReadOnly: " + ModeDate1.ReadOnly;
             MessageLabel.Text =
                 "操作: " + actionName + "<br />" +
                 "IsPostBack: " + IsPostBack + "<br />" +
                 "CommonDropDown 選択値: " + Server.HtmlEncode(commonRoleKbn) + "<br />" +
                 "BaseDropDown 選択値: " + Server.HtmlEncode(baseRoleKbn) + "<br />" +
                 "ModeDropDown 選択値: " + Server.HtmlEncode(modeRoleKbn) + "<br />" +
-                "ModeDropDown 表示テキスト: " + Server.HtmlEncode(ModeDropDown1.SelectedText);
+                "ModeDropDown 表示テキスト: " + Server.HtmlEncode(ModeDropDown1.SelectedText) + "<br />" +
+                "ModeDate 入力値: " + Server.HtmlEncode(modeDate);
+        }
+
+        /// <summary>
+        /// ModeDate に外部から追加する検証処理を行います。
+        /// </summary>
+        /// <param name="source">イベント発生元。</param>
+        /// <param name="args">検証イベントデータ。</param>
+        private void ModeDate1_CustomValidate(object source, ServerValidateEventArgs args)
+        {
+            DateTime inputDate;
+            if (!DateTime.TryParse(args.Value, out inputDate))
+            {
+                return;
+            }
+
+            // 未来日付不可
+            args.IsValid = inputDate.Date <= DateTime.Today;
         }
 
         /// <summary>
@@ -112,5 +156,7 @@ namespace WebForm
 
             return dataTable;
         }
+
+
     }
 }

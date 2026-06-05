@@ -128,7 +128,7 @@
                             <asp:Label ID="SlipDateLabel" runat="server" AssociatedControlID="SlipDateTextBox" Text="伝票日付" CssClass="form-label mb-0" />
                         </th>
                         <td>
-                            <asp:TextBox ID="SlipDateTextBox" runat="server" CssClass="form-control" />
+                            <asp:TextBox ID="SlipDateTextBox" runat="server" TextMode="Date" CssClass="form-control" />
                         </td>
                     </tr>
                 </tbody>
