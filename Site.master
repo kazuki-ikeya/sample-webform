@@ -90,6 +90,7 @@
                         <asp:TreeNode Text="設定" Value="Settings">
                             <asp:TreeNode Text="画面設定" Value="DisplaySettings" />
                             <asp:TreeNode Text="権限設定" Value="PermissionSettings" />
+                            <asp:TreeNode Text="日付コントロール検証" Value="DateControlVerification" NavigateUrl="~/DateControlVerification.aspx" />
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>

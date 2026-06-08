@@ -47,7 +47,6 @@ namespace WebForm
                 ModeDropDown1.SelectedValue = "2";
 
                 ModeDate1.SelectedDate = DateTime.Today;
-
                 ApplyReadOnly();
 
                 ShowPostResult("初期表示");

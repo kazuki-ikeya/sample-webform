@@ -82,6 +82,8 @@ namespace WebForm
                 case "DisplaySettings":
                 case "PermissionSettings":
                     return "システム設定や権限設定を想定したメニューです。";
+                case "DateControlVerification":
+                    return "標準日付入力、datepicker、flatpickr の動作を比較する検証画面です。";
                 default:
                     return "共通ヘッダーと左側ツリーメニューを持つレイアウトのサンプルです。";
             }

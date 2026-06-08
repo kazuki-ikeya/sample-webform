@@ -149,7 +149,6 @@ namespace WebForm
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ModeDateReadOnlyCheckBox;
 
-        /// <summary>
         /// PostButton コントロール。
         /// </summary>
         /// <remarks>

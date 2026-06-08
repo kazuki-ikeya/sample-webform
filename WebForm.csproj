@@ -62,10 +62,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\UserControls\CommonDate.ascx" />
+    <Content Include="Controls\UserControls\CommonCalendarDate.ascx" />
+    <Content Include="Controls\UserControls\CommonDatepickerDate.ascx" />
+    <Content Include="Controls\UserControls\CommonFlatpickrDate.ascx" />
     <Content Include="Controls\UserControls\CommonDropDown.ascx" />
     <Content Include="Controls\UserControls\CommonLabel.ascx" />
     <Content Include="Controls\UserControls\ModeDate.ascx" />
     <Content Include="Controls\UserControls\ModeDropDown.ascx" />
+    <Content Include="DateControlVerification.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="NavigationSample.aspx" />
     <Content Include="Site.master" />
@@ -77,6 +82,37 @@
     <Compile Include="Common\IDisplayModeControl.cs" />
     <Compile Include="Controls\CustomContols\CustomDropDown.cs" />
     <Compile Include="Controls\CustomContols\CustomLabel.cs" />
+    <Compile Include="Controls\UserControls\CommonDateControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonCalendarDate.ascx.cs">
+      <DependentUpon>CommonCalendarDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonCalendarDate.ascx.designer.cs">
+      <DependentUpon>CommonCalendarDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonDate.ascx.cs">
+      <DependentUpon>CommonDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonDate.ascx.designer.cs">
+      <DependentUpon>CommonDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonDatepickerDate.ascx.cs">
+      <DependentUpon>CommonDatepickerDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonDatepickerDate.ascx.designer.cs">
+      <DependentUpon>CommonDatepickerDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonFlatpickrDate.ascx.cs">
+      <DependentUpon>CommonFlatpickrDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControls\CommonFlatpickrDate.ascx.designer.cs">
+      <DependentUpon>CommonFlatpickrDate.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UserControls\CommonDropDown.ascx.cs">
       <DependentUpon>CommonDropDown.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +142,13 @@
       <DependentUpon>ModeDropDown.ascx</DependentUpon>
     </Compile>
     <Compile Include="Data\WebFormDbContext.cs" />
+    <Compile Include="DateControlVerification.aspx.cs">
+      <DependentUpon>DateControlVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateControlVerification.aspx.designer.cs">
+      <DependentUpon>DateControlVerification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
