@@ -48,3 +48,21 @@
         CommonDateControl.applyInputColor(input[0]);
     });
 </script>
+<style>
+.ui-datepicker-title {
+    display: flex;
+    justify-content: center;
+}
+
+.ui-datepicker-year {
+    order: 1;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.ui-datepicker-month {
+    order: 2;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+</style>

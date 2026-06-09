@@ -3,7 +3,7 @@
 <asp:Panel ID="DateInputPanel" runat="server" CssClass="common-calendar-date-host">
     <div class="input-group">
         <asp:TextBox ID="DateTextBox" runat="server" CssClass="form-control" />
-        <asp:LinkButton ID="CalendarToggleButton" runat="server" CssClass="input-group-text common-date-icon text-decoration-none" ToolTip="カレンダーを開く" CausesValidation="false" OnClick="CalendarToggleButton_Click">&#128197;</asp:LinkButton>
+        <asp:LinkButton ID="CalendarToggleButton" runat="server" CssClass="input-group-text common-date-icon text-decoration-none" ToolTip="Open calendar" CausesValidation="false" OnClick="CalendarToggleButton_Click">&#128197;</asp:LinkButton>
     </div>
     <asp:Panel ID="CalendarPanel" runat="server" Visible="false" CssClass="common-calendar-date-popup shadow">
         <asp:Calendar

@@ -16,6 +16,7 @@
         var picker = flatpickr(input, {
             locale: 'ja',
             dateFormat: 'Y/m/d',
+            monthSelectorType: "static",
             allowInput: true,
             onChange: function () {
                 CommonDateControl.applyInputColor(input);
@@ -42,3 +43,19 @@
         CommonDateControl.applyInputColor(input);
     });
 </script>
+
+<style>
+.flatpickr-current-month {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.flatpickr-current-month .numInputWrapper {
+    order: 1; /* 年 */
+}
+
+.flatpickr-current-month .cur-month {
+    order: 2; /* 月 */
+}
+</style>

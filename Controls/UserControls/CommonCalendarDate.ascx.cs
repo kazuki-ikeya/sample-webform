@@ -31,7 +31,11 @@ namespace WebForm.Controls
             if (SelectedDate.HasValue)
             {
                 DateCalendar.SelectedDate = SelectedDate.Value;
-                DateCalendar.VisibleDate = SelectedDate.Value;
+
+                if (DateCalendar.VisibleDate == DateTime.MinValue)
+                {
+                    DateCalendar.VisibleDate = SelectedDate.Value;
+                }
             }
         }
 
