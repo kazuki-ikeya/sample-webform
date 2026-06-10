@@ -185,6 +185,24 @@ namespace WebForm
         protected global::System.Web.UI.WebControls.Label MessageLabel;
 
         /// <summary>
+        /// NLogSampleButton コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NLogSampleButton;
+
+        /// <summary>
+        /// NLogSampleResultLabel コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NLogSampleResultLabel;
+
+        /// <summary>
         /// CustomLabel1 コントロール。
         /// </summary>
         /// <remarks>

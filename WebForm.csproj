@@ -73,6 +73,9 @@
     <Content Include="DateControlVerification.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="NavigationSample.aspx" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Site.master" />
     <Content Include="SlipSearch.aspx" />
     <Content Include="Web.config" />
@@ -194,6 +197,9 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework">
       <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>6.1.3</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

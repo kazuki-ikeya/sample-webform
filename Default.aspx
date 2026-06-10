@@ -76,6 +76,12 @@
                     <asp:ValidationSummary ID="DefaultValidationSummary" runat="server" ValidationGroup="DefaultTest" CssClass="text-danger fw-semibold" />
                     <asp:Label ID="MessageLabel" runat="server" />
                 </div>
+
+                <div class="border rounded p-3 mt-3">
+                    <h2 class="h5 mb-3">NLog 動作確認</h2>
+                    <asp:Button ID="NLogSampleButton" runat="server" Text="NLog に出力" CssClass="btn btn-secondary" CausesValidation="false" OnClick="NLogSampleButton_Click" />
+                    <asp:Label ID="NLogSampleResultLabel" runat="server" CssClass="d-block mt-2 text-muted" />
+                </div>
             </div>
         </main>
         <div class="container mb-3">

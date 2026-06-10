@@ -1,6 +1,8 @@
 using System;
 using System.Data;
+using System.IO;
 using System.Web.UI.WebControls;
+using NLog;
 
 namespace WebForm
 {
@@ -9,6 +11,8 @@ namespace WebForm
     /// </summary>
     public partial class _Default : System.Web.UI.Page
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// ページ初期化時の処理を行います。
         /// </summary>
@@ -99,6 +103,26 @@ namespace WebForm
         /// <summary>
         /// CommonDropDown に ReadOnly 状態を適用します。
         /// </summary>
+        /// <summary>
+        /// NLog のログ出力を確認するためのサンプルログを出力します。
+        /// </summary>
+        /// <param name="sender">イベント発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        protected void NLogSampleButton_Click(object sender, EventArgs e)
+        {
+            string logDirectory = Server.MapPath("~/App_Data/logs");
+            Directory.CreateDirectory(logDirectory);
+
+            Logger.Info("NLog sample info. UserHostAddress={0}, IsPostBack={1}", Request.UserHostAddress, IsPostBack);
+            Logger.Warn("NLog sample warning. Path={0}", Request.Path);
+            Logger.Error("NLog sample error check. Time={0:yyyy/MM/dd HH:mm:ss}", DateTime.Now);
+            LogManager.Flush();
+
+            NLogSampleResultLabel.Text =
+                "NLog にサンプルログを出力しました。出力先: " +
+                Server.HtmlEncode(Path.Combine(logDirectory, "default-sample-" + DateTime.Today.ToString("yyyy-MM-dd") + ".log"));
+        }
+
         private void ApplyReadOnly()
         {
             CommonDropDown1.ReadOnly = CommonReadOnlyCheckBox.Checked;

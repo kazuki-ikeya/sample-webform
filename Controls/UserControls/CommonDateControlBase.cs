@@ -6,26 +6,60 @@ using System.Web.UI.WebControls;
 
 namespace WebForm.Controls
 {
+    /// <summary>
+    /// 共通日付入力コントロールが公開する基本操作を定義します。
+    /// </summary>
     public interface ICommonDateControl
     {
+        /// <summary>
+        /// 入力欄に表示する日付文字列を取得または設定します。
+        /// </summary>
         string Text { get; set; }
 
+        /// <summary>
+        /// 入力欄の日付を <see cref="DateTime"/> として取得または設定します。
+        /// </summary>
         DateTime? SelectedDate { get; set; }
 
+        /// <summary>
+        /// 編集可能な入力欄ではなく参照用ラベルで表示するかどうかを取得または設定します。
+        /// </summary>
         bool ReadOnly { get; set; }
     }
 
+    /// <summary>
+    /// Web Forms の日付入力ユーザーコントロールに共通する表示、解析、参照表示、休日判定を提供します。
+    /// </summary>
     public abstract class CommonDateControlBase : UserControl, ICommonDateControl
     {
+        /// <summary>
+        /// HTML の日付入力で使用する日付形式を表します。
+        /// </summary>
         protected const string HtmlDateFormat = "yyyy-MM-dd";
+
+        /// <summary>
+        /// 画面表示で使用する標準の日付形式を表します。
+        /// </summary>
         protected const string DisplayDateFormat = "yyyy/MM/dd";
 
+        /// <summary>
+        /// 派生コントロールの日付入力欄を取得します。
+        /// </summary>
         protected abstract TextBox DateInput { get; }
 
+        /// <summary>
+        /// ReadOnly 時に表示する日付ラベルを取得します。
+        /// </summary>
         protected abstract Label DateDisplayLabel { get; }
 
+        /// <summary>
+        /// 編集可能な日付入力 UI 全体を含むコンテナを取得します。
+        /// </summary>
         protected abstract WebControl DateInputContainer { get; }
 
+        /// <summary>
+        /// 入力欄に表示する日付文字列を取得または設定します。
+        /// </summary>
         public string Text
         {
             get
@@ -39,6 +73,9 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// 入力欄の日付を <see cref="DateTime"/> として取得または設定します。
+        /// </summary>
         public DateTime? SelectedDate
         {
             get
@@ -55,6 +92,9 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// ReadOnly 表示時に使用する日付書式を取得または設定します。
+        /// </summary>
         public string DisplayFormat
         {
             get
@@ -69,6 +109,9 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// 編集可能な入力欄ではなく参照用ラベルで表示するかどうかを取得または設定します。
+        /// </summary>
         public bool ReadOnly
         {
             get
@@ -83,6 +126,10 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// 描画直前に入力欄の属性、ReadOnly 表示、共通アセット、派生コントロール固有アセットを設定します。
+        /// </summary>
+        /// <param name="e">イベントデータ。</param>
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
@@ -93,6 +140,9 @@ namespace WebForm.Controls
             RegisterPickerAssets();
         }
 
+        /// <summary>
+        /// 日付入力欄に共通の HTML 属性を設定します。
+        /// </summary>
         protected virtual void ConfigureInput()
         {
             DateInput.TextMode = TextBoxMode.SingleLine;
@@ -101,15 +151,28 @@ namespace WebForm.Controls
             DateInput.Attributes["data-common-date-input"] = "true";
         }
 
+        /// <summary>
+        /// 入力欄へ設定する日付文字列に変換します。
+        /// </summary>
+        /// <param name="date">変換する日付。</param>
+        /// <returns>入力欄に表示する日付文字列。</returns>
         protected virtual string FormatInputDate(DateTime date)
         {
             return date.ToString(DisplayDateFormat, CultureInfo.InvariantCulture);
         }
 
+        /// <summary>
+        /// 派生コントロール固有の日付ピッカー用 CSS や JavaScript を登録します。
+        /// </summary>
         protected virtual void RegisterPickerAssets()
         {
         }
 
+        /// <summary>
+        /// ページヘッダーへ外部スタイルシートを一度だけ登録します。
+        /// </summary>
+        /// <param name="key">重複登録を防ぐためのキー。</param>
+        /// <param name="href">登録するスタイルシートの URL。</param>
         protected void RegisterStylesheet(string key, string href)
         {
             if (Page == null || Page.Header == null || Page.Items[key] != null)
@@ -125,6 +188,11 @@ namespace WebForm.Controls
             Page.Items[key] = true;
         }
 
+        /// <summary>
+        /// ページへ起動時 JavaScript を一度だけ登録します。
+        /// </summary>
+        /// <param name="key">重複登録を防ぐためのキー。</param>
+        /// <param name="script">登録する JavaScript。</param>
         protected void RegisterStartupScript(string key, string script)
         {
             if (Page != null && !Page.ClientScript.IsStartupScriptRegistered(typeof(CommonDateControlBase), key))
@@ -133,6 +201,9 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// 現在の ReadOnly 設定に合わせて入力欄と表示ラベルの表示状態を切り替えます。
+        /// </summary>
         private void ApplyReadOnlyState()
         {
             ApplyLabelText();
@@ -145,6 +216,9 @@ namespace WebForm.Controls
             DateDisplayLabel.Style["text-align"] = "center";
         }
 
+        /// <summary>
+        /// 入力欄の値を参照表示用ラベルへ反映します。
+        /// </summary>
         private void ApplyLabelText()
         {
             DateTime parsedDate;
@@ -153,6 +227,9 @@ namespace WebForm.Controls
                 : DateInput.Text;
         }
 
+        /// <summary>
+        /// 入力欄の日付が土曜日、日曜日、祝日の場合に対応する CSS クラスを付け替えます。
+        /// </summary>
         private void ApplyDateKindCss()
         {
             global::CssHelper.RemoveCssClass(DateInput, "common-date-saturday-input");
@@ -174,6 +251,9 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// すべての日付入力コントロールで使用する共通 CSS と JavaScript を登録します。
+        /// </summary>
         private void RegisterCommonAssets()
         {
             if (Page == null)
@@ -182,12 +262,15 @@ namespace WebForm.Controls
             }
 
             RegisterStylesheetBlock();
-            RegisterStartupScript("common-date-base-script", GetCommonDateScript());
+            //RegisterStartupScript("common-date-base-script", GetCommonDateScript());
             RegisterStartupScript(
                 "common-date-standard-" + ClientID,
                 "CommonDateControl.bindStandard('" + DateInput.ClientID + "');");
         }
 
+        /// <summary>
+        /// 日付入力欄、カレンダー、日付ピッカーで共有するインライン CSS をページヘッダーへ登録します。
+        /// </summary>
         private void RegisterStylesheetBlock()
         {
             const string key = "common_date_style";
@@ -216,6 +299,11 @@ namespace WebForm.Controls
             Page.Items[key] = true;
         }
 
+        /// <summary>
+        /// 解析可能な日付文字列を標準表示形式へ正規化します。
+        /// </summary>
+        /// <param name="text">正規化する日付文字列。</param>
+        /// <returns>解析できた場合は標準表示形式の日付文字列。解析できない場合は元の文字列。</returns>
         private string NormalizeDateText(string text)
         {
             DateTime parsedDate;
@@ -224,6 +312,12 @@ namespace WebForm.Controls
                 : text;
         }
 
+        /// <summary>
+        /// 日付文字列を標準表示形式、HTML 日付形式、現在カルチャの順で解析します。
+        /// </summary>
+        /// <param name="text">解析する日付文字列。</param>
+        /// <param name="parsedDate">解析できた日付。解析できない場合は既定値。</param>
+        /// <returns>解析に成功した場合は true。それ以外の場合は false。</returns>
         protected static bool TryParseText(string text, out DateTime parsedDate)
         {
             return DateTime.TryParseExact(text, DisplayDateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate)
@@ -231,6 +325,11 @@ namespace WebForm.Controls
                 || DateTime.TryParse(text, CultureInfo.CurrentCulture, DateTimeStyles.None, out parsedDate);
         }
 
+        /// <summary>
+        /// 指定した日付が日本の祝日または振替休日・国民の休日に該当するかどうかを判定します。
+        /// </summary>
+        /// <param name="date">判定する日付。</param>
+        /// <returns>日本の祝日または休日に該当する場合は true。それ以外の場合は false。</returns>
         protected static bool IsJapaneseHoliday(DateTime date)
         {
             if (IsJapaneseBaseHoliday(date))
@@ -257,6 +356,11 @@ namespace WebForm.Controls
             return false;
         }
 
+        /// <summary>
+        /// 指定した日付が振替休日や国民の休日を除く日本の祝日に該当するかどうかを判定します。
+        /// </summary>
+        /// <param name="date">判定する日付。</param>
+        /// <returns>祝日に該当する場合は true。それ以外の場合は false。</returns>
         private static bool IsJapaneseBaseHoliday(DateTime date)
         {
             switch (date.Month)
@@ -286,21 +390,41 @@ namespace WebForm.Controls
             }
         }
 
+        /// <summary>
+        /// 指定した日付がその月の第 n 月曜日に該当するかどうかを判定します。
+        /// </summary>
+        /// <param name="date">判定する日付。</param>
+        /// <param name="nth">月内で何回目の月曜日かを表す値。</param>
+        /// <returns>指定した第 n 月曜日に該当する場合は true。それ以外の場合は false。</returns>
         private static bool IsNthMonday(DateTime date, int nth)
         {
             return date.DayOfWeek == DayOfWeek.Monday && ((date.Day - 1) / 7) + 1 == nth;
         }
 
+        /// <summary>
+        /// 指定した年の春分の日の日付を計算します。
+        /// </summary>
+        /// <param name="year">計算対象の年。</param>
+        /// <returns>春分の日の日。</returns>
         private static int GetVernalEquinoxDay(int year)
         {
             return (int)Math.Floor(20.8431 + (0.242194 * (year - 1980)) - Math.Floor((year - 1980) / 4.0));
         }
 
+        /// <summary>
+        /// 指定した年の秋分の日の日付を計算します。
+        /// </summary>
+        /// <param name="year">計算対象の年。</param>
+        /// <returns>秋分の日の日。</returns>
         private static int GetAutumnalEquinoxDay(int year)
         {
             return (int)Math.Floor(23.2488 + (0.242194 * (year - 1980)) - Math.Floor((year - 1980) / 4.0));
         }
 
+        /// <summary>
+        /// 日付入力欄の色分けとカレンダーアイコン操作に使用する共通 JavaScript を取得します。
+        /// </summary>
+        /// <returns>ページへ登録する JavaScript 文字列。</returns>
         private static string GetCommonDateScript()
         {
             return @"
